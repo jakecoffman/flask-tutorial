@@ -1,0 +1,15 @@
+body{
+    font-family: 'Georgia', serif;
+    color:#3E4349;
+}
+
+#nav {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 10em;
+}
+
+#content {
+    margin-left: 10em;
+}

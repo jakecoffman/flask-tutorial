@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+    <h2>Remote Control</h2>
+    Enter Python to execute:
+    <form action="{{url_for('remote')}}" method="post">
+        <input type="text" name="expression" />
+        <input type="submit" value="Execute" />
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            Results:
+            <pre>
+                {% for message in messages %}
+{{ message }}
+                {% endfor %}
+            </pre>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+{% block nav %}
+<li><a href="{{url_for('index')}}">back</a></li>
+{% endblock %}

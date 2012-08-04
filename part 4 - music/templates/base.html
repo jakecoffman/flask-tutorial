@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Episode 3</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
+        <script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="nav">
+            Navigation:<br />
+            <ul>
+                {% block nav %}{% endblock %}
+                <li><a href="{{url_for('remote')}}">remote control</a></li>
+                <li><a href="{{url_for('music')}}">music</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

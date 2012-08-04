@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Episode 5</title>
+        <link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
+        <script type="text/javascript" src="/static/jquery-1.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="nav">
+            Navigation:<br />
+            <ul>
+                {% block nav %}{% endblock %}
+                <li><a href="{{url_for('main')}}">index</a></li>
+                <li><a href="/about/">about</a></li>
+                <li><a href="/contact/">contact</a></li>
+                <hr id="nav"/>
+                {% if 'username' in session %}
+                <li><a href="{{url_for('remote')}}">remote control</a></li>
+                <li><a href="{{url_for('music')}}">music</a></li>
+                <li><a href="{{url_for('login')}}">logout</a>
+                {% else %}
+                <li><a href="{{url_for('login')}}">login</a>
+                {% endif %}
+            </ul>
+        </div>
+        <div id="flashed">
+        {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+        {% endwith %}
+        </div>
+    </body>
+</html>
