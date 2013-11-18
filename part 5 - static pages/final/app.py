@@ -15,7 +15,7 @@ app.add_url_rule('/',
                  view_func=Main.as_view('main'),
                  methods=["GET"])
 app.add_url_rule('/<page>/',
-                 view_func=Main.as_view('main'),
+                 view_func=Main.as_view('page'),
                  methods=["GET"])
 app.add_url_rule('/login/',
                  view_func=Login.as_view('login'),
