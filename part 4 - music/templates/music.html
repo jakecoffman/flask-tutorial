@@ -5,7 +5,7 @@
     <audio controls="controls" autoplay="autoplay"></audio>
     <ul>
     {% for song in songs %}
-        <li><a onclick="changeTrack('{{song}}')" href="javascript:void(0);">{{song}}</a></li>
+        <li><a href="javascript:void(0);">{{song}}</a></li>
     {% endfor %}
     </ul>
     {% with messages = get_flashed_messages() %}
@@ -18,10 +18,13 @@
             </pre>
         {% endif %}
     {% endwith %}
-    <script type="text/javascript">
-        function changeTrack(song){
-            $('audio').attr('src', '/static/music/'+song);
-        }
+    <script type='text/javascript'>
+        {% for song in songs %} 
+            $('li').click(function(){
+                var str = $(this).text()
+                $('audio').attr('src', '/static/music/'+str);
+            });
+        {% endfor %}
     </script>
 {% endblock %}
 {% block nav %}
